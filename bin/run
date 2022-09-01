@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby 
 require 'sqlite3'
-
+require 'pry'
 require_relative "../lib/song.rb"
 require_relative "../config/environment.rb"
 
@@ -11,3 +11,22 @@ puts "song album: " + song.album
 song.save
 
 DB[:conn].execute("SELECT * FROM songs")
+##### TEST CODE for Song.find_by_name #####
+
+puts Song.find_by_name('Hello')
+
+##### TEST CODE for Song.column_names #####
+
+puts Song.column_names
+
+##### TEST CODE for Song.table_name #####
+
+puts Song.table_name
+
+##### TEST CODE for Song.new #####
+song = Song.new(name: "Hello", album: "25")
+puts song
+
+##### TEST CODE for Song.save #####
+
+puts song.save
